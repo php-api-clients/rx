@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3e6508f2cd1f0bef26625b6db5076c9",
-    "content-hash": "f4328467d631f0ba1b8c1bb165222c51",
+    "hash": "7cbb13b2241d78d144406e333da739de",
+    "content-hash": "f25b7a7d880ddbe497dfe4673869a287",
     "packages": [
         {
             "name": "react/promise",
@@ -1892,11 +1892,11 @@
             "package": "reactivex/rxphp"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "reactivex/rxphp": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.0"
