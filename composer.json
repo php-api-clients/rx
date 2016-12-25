@@ -12,17 +12,11 @@
   "require": {
     "php": "^7.0",
     "react/promise": "^2.4",
-    "reactivex/rxphp": "dev-custom_operators as 1.4.0"
+    "reactivex/rxphp": "dev-master#c7d351d579f90134eef3701d87eb1ea8cd1e072e"
   },
   "require-dev": {
     "api-clients/test-utilities": "^2.0"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/mbonneau/RxPHP"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "ApiClients\\Tools\\Rx\\": "src/"
