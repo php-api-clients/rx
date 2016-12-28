@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d965e11d3d91de0f89646d7c53b730d6",
-    "content-hash": "8782e781980b25b402cbaf64d74462d6",
+    "hash": "15ecdd6f30177c78fe0fb20ee9b981e2",
+    "content-hash": "bc604c73a1b2b638872e3ffe51454895",
     "packages": [
         {
             "name": "react/promise",
@@ -52,16 +52,16 @@
         },
         {
             "name": "reactivex/rxphp",
-            "version": "dev-master",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ReactiveX/RxPHP.git",
-                "reference": "c7d351d579f90134eef3701d87eb1ea8cd1e072e"
+                "reference": "7c7d8584dc8d92337fdaedbe74c4ced5f95e9a69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/c7d351d579f90134eef3701d87eb1ea8cd1e072e",
-                "reference": "c7d351d579f90134eef3701d87eb1ea8cd1e072e",
+                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/7c7d8584dc8d92337fdaedbe74c4ced5f95e9a69",
+                "reference": "7c7d8584dc8d92337fdaedbe74c4ced5f95e9a69",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "reactive",
                 "rx"
             ],
-            "time": "2016-12-24 23:43:32"
+            "time": "2016-12-26 16:39:28"
         }
     ],
     "packages-dev": [
@@ -1136,16 +1136,16 @@
         },
         {
             "name": "react/promise-timer",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise-timer.git",
-                "reference": "6a46050d801688e08d1a550b97b1f3735505c62a"
+                "reference": "ddedc67bfd7f579fc83e66ff67e3564b179297dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/6a46050d801688e08d1a550b97b1f3735505c62a",
-                "reference": "6a46050d801688e08d1a550b97b1f3735505c62a",
+                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/ddedc67bfd7f579fc83e66ff67e3564b179297dd",
+                "reference": "ddedc67bfd7f579fc83e66ff67e3564b179297dd",
                 "shasum": ""
             },
             "require": {
@@ -1182,7 +1182,7 @@
                 "timeout",
                 "timer"
             ],
-            "time": "2016-02-29 19:03:45"
+            "time": "2016-12-27 08:12:19"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1882,11 +1882,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "reactivex/rxphp": 20
-    },
-    "prefer-stable": true,
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.0"

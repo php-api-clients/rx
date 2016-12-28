@@ -1,8 +1,6 @@
 {
   "name": "api-clients/rx",
   "license": "MIT",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "authors": [
     {
       "name": "Cees-Jan Kiewiet",
@@ -12,7 +10,7 @@
   "require": {
     "php": "^7.0",
     "react/promise": "^2.4",
-    "reactivex/rxphp": "dev-master#c7d351d579f90134eef3701d87eb1ea8cd1e072e"
+    "reactivex/rxphp": "^1.5"
   },
   "require-dev": {
     "api-clients/test-utilities": "^2.0"
