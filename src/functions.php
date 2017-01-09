@@ -6,6 +6,7 @@ use React\Promise\PromiseInterface;
 use Rx\Observable;
 use Rx\ObserverInterface;
 use Rx\SchedulerInterface;
+use function React\Promise\resolve;
 
 /**
  * Take an observable from a promise and return an new observable piping through the stream.
@@ -20,7 +21,7 @@ function unwrapObservableFromPromise(PromiseInterface $promise): Observable
             ObserverInterface $observer,
             SchedulerInterface $scheduler
         ) use ($promise) {
-            $promise->then(function (Observable $observable) use ($observer, $scheduler) {
+            resolve($promise)->done(function (Observable $observable) use ($observer, $scheduler) {
                 $observable->subscribeCallback(
                     function ($next) use ($observer) {
                         $observer->onNext($next);
