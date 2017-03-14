@@ -17,10 +17,9 @@ function unwrapObservableFromPromise(PromiseInterface $promise): Observable
 {
     return Observable::create(
         function (
-            ObserverInterface $observer,
-            SchedulerInterface $scheduler
+            ObserverInterface $observer
         ) use ($promise) {
-            $promise->then(function (Observable $observable) use ($observer, $scheduler) {
+            $promise->then(function (Observable $observable) use ($observer) {
                 $observable->subscribeCallback(
                     function ($next) use ($observer) {
                         $observer->onNext($next);

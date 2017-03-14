@@ -10,7 +10,7 @@
   "require": {
     "php": "^7.0",
     "react/promise": "^2.4",
-    "reactivex/rxphp": "^1.5"
+    "reactivex/rxphp": "2.x-dev"
   },
   "require-dev": {
     "api-clients/test-utilities": "^2.0"
@@ -20,7 +20,8 @@
       "ApiClients\\Tools\\Rx\\": "src/"
     },
     "files": [
-      "src/functions_include.php"
+      "src/functions_include.php",
+      "src/bootstrap.php"
     ]
   },
   "autoload-dev": {
