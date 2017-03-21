@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca67bc35a27efaba6980721efd52e1d3",
+    "content-hash": "9c1d5fe646ae51f51c3a0d300df81a1d",
     "packages": [
         {
             "name": "react/promise",
@@ -51,16 +51,16 @@
         },
         {
             "name": "reactivex/rxphp",
-            "version": "2.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ReactiveX/RxPHP.git",
-                "reference": "152c45d0da7129750c085dae9ea7b11348548e36"
+                "reference": "4ad811032428074485d7ca99b779aec54b242982"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/152c45d0da7129750c085dae9ea7b11348548e36",
-                "reference": "152c45d0da7129750c085dae9ea7b11348548e36",
+                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/4ad811032428074485d7ca99b779aec54b242982",
+                "reference": "4ad811032428074485d7ca99b779aec54b242982",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "reactive",
                 "rx"
             ],
-            "time": "2017-03-14 21:33:28"
+            "time": "2017-03-21T13:29:22+00:00"
         }
     ],
     "packages-dev": [
@@ -1830,9 +1830,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "reactivex/rxphp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
