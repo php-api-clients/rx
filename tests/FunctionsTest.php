@@ -63,4 +63,20 @@ final class FunctionsTest extends TestCase
         self::assertFalse($completed);
         self::assertSame($exception, $currentException);
     }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testUnwrapObservableFromPromiseDoesNotSwallowException()
+    {
+        unwrapObservableFromPromise(
+            resolve(
+                Observable::just(1)
+            )
+        )->subscribeCallback(
+            function () {
+                throw new Exception('boom');
+            }
+        );
+    }
 }
