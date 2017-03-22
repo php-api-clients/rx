@@ -21,7 +21,7 @@ function unwrapObservableFromPromise(PromiseInterface $promise): Observable
             ObserverInterface $observer
         ) use ($promise) {
             resolve($promise)->done(function (Observable $observable) use ($observer) {
-                $observable->subscribeCallback(
+                $observable->subscribe(
                     function ($next) use ($observer) {
                         $observer->onNext($next);
                     },

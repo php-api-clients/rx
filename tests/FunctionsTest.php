@@ -21,7 +21,7 @@ final class FunctionsTest extends TestCase
             resolve(
                 Observable::fromArray(range(0, 1337))
             )
-        )->subscribeCallback(
+        )->subscribe(
             function ($i) use (&$currentI) {
                 $currentI = $i;
             },
@@ -50,7 +50,7 @@ final class FunctionsTest extends TestCase
                     )
                 )
             )
-        )->subscribeCallback(
+        )->subscribe(
             null,
             function ($exception) use (&$currentException) {
                 $currentException = $exception;
@@ -73,7 +73,7 @@ final class FunctionsTest extends TestCase
             resolve(
                 Observable::just(1)
             )
-        )->subscribeCallback(
+        )->subscribe(
             function () {
                 throw new Exception('boom');
             }

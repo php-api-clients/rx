@@ -26,7 +26,7 @@ $promise = resolve($observable);
 /**
  * Outputs: ab
  */
-unwrapObservableFromPromise($promise)->subscribeCallback(function ($d) {
+unwrapObservableFromPromise($promise)->subscribe(function ($d) {
     echo $d;
 });
 ```
