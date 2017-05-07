@@ -10,7 +10,7 @@ use function ApiClients\Tools\Rx\unwrapObservableFromPromise;
 use function React\Promise\reject;
 use function React\Promise\resolve;
 
-final class FunctionsTest extends TestCase
+final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
 {
     public function testUnwrapObservableFromPromise()
     {
