@@ -5,7 +5,7 @@ namespace ApiClients\Tools\Rx;
 use React\Promise\PromiseInterface;
 use Rx\Observable;
 use Rx\ObserverInterface;
-use Rx\SchedulerInterface;
+use Rx\Scheduler;
 use function React\Promise\resolve;
 
 /**
@@ -35,4 +35,15 @@ function unwrapObservableFromPromise(PromiseInterface $promise): Observable
             });
         }
     );
+}
+
+/**
+ * Take an array and return an observable from it with an immediate scheduler for scheduling
+ *
+ * @param array $array
+ * @return Observable
+ */
+function observableFromArray(array $array): Observable
+{
+    return Observable::fromArray($array, Scheduler::getImmediate());
 }
