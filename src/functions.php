@@ -6,10 +6,8 @@ use Exception;
 use React\EventLoop\LoopInterface;
 use React\Promise\PromiseInterface;
 use Rx\Observable;
-use Rx\ObserverInterface;
 use Rx\Scheduler;
 use Throwable;
-use function React\Promise\resolve;
 
 /**
  * Take an observable from a promise and return an new observable piping through the stream.
@@ -19,25 +17,7 @@ use function React\Promise\resolve;
  */
 function unwrapObservableFromPromise(PromiseInterface $promise): Observable
 {
-    return Observable::create(
-        function (
-            ObserverInterface $observer
-        ) use ($promise) {
-            resolve($promise)->done(function (Observable $observable) use ($observer) {
-                $observable->subscribe(
-                    function ($next) use ($observer) {
-                        $observer->onNext($next);
-                    },
-                    function ($error) use ($observer) {
-                        $observer->onError($error);
-                    },
-                    function () use ($observer) {
-                        $observer->onCompleted();
-                    }
-                );
-            });
-        }
-    );
+    return Observable::fromPromise($promise)->mergeAll();
 }
 
 /**
