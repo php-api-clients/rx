@@ -12,7 +12,7 @@ use Throwable;
 /**
  * Take an observable from a promise and return an new observable piping through the stream.
  *
- * @param PromiseInterface $promise
+ * @param  PromiseInterface $promise
  * @return Observable
  */
 function unwrapObservableFromPromise(PromiseInterface $promise): Observable
@@ -21,9 +21,9 @@ function unwrapObservableFromPromise(PromiseInterface $promise): Observable
 }
 
 /**
- * Take an array and return an observable from it with an immediate scheduler for scheduling
+ * Take an array and return an observable from it with an immediate scheduler for scheduling.
  *
- * @param array $array
+ * @param  array      $array
  * @return Observable
  */
 function observableFromArray(array $array): Observable
@@ -32,7 +32,7 @@ function observableFromArray(array $array): Observable
 }
 
 /**
- * @param LoopInterface $loop
+ * @param  LoopInterface $loop
  * @throws Throwable
  */
 function setAsyncScheduler(LoopInterface $loop)
