@@ -1,5 +1,6 @@
 {
   "name": "api-clients/rx",
+  "description": "RxPHP utilities",
   "license": "MIT",
   "authors": [
     {
