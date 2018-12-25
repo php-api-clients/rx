@@ -35,7 +35,7 @@ function observableFromArray(array $array): Observable
  * @param  LoopInterface $loop
  * @throws Throwable
  */
-function setAsyncScheduler(LoopInterface $loop)
+function setAsyncScheduler(LoopInterface $loop): void
 {
     try {
         Scheduler::setAsyncFactory(function () use ($loop) {
