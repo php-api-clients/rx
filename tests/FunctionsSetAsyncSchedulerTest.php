@@ -7,12 +7,15 @@ use React\EventLoop\Factory;
 use Rx\Scheduler;
 use function ApiClients\Tools\Rx\setAsyncScheduler;
 
+/**
+ * @internal
+ */
 final class FunctionsSetAsyncSchedulerTest extends TestCase
 {
     /**
      * @runInSeparateProcess
      */
-    public function testSetAsyncScheduler()
+    public function testSetAsyncScheduler(): void
     {
         $loop = Factory::create();
         setAsyncScheduler($loop);

@@ -10,23 +10,26 @@ use function ApiClients\Tools\Rx\unwrapObservableFromPromise;
 use function React\Promise\reject;
 use function React\Promise\resolve;
 
+/**
+ * @internal
+ */
 final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
 {
-    public function testUnwrapObservableFromPromise()
+    public function testUnwrapObservableFromPromise(): void
     {
         $completed = false;
         $currentI = null;
 
         unwrapObservableFromPromise(
             resolve(
-                Observable::fromArray(range(0, 1337))
+                Observable::fromArray(\range(0, 1337))
             )
         )->subscribe(
-            function ($i) use (&$currentI) {
+            function ($i) use (&$currentI): void {
                 $currentI = $i;
             },
             null,
-            function () use (&$completed) {
+            function () use (&$completed): void {
                 $completed = true;
             }
         );
@@ -35,7 +38,7 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
         self::assertSame(1337, $currentI);
     }
 
-    public function testUnwrapObservableFromPromiseOnError()
+    public function testUnwrapObservableFromPromiseOnError(): void
     {
         $completed = false;
         $currentException = null;
@@ -52,10 +55,10 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
             )
         )->subscribe(
             null,
-            function ($exception) use (&$currentException) {
+            function ($exception) use (&$currentException): void {
                 $currentException = $exception;
             },
-            function () use (&$completed) {
+            function () use (&$completed): void {
                 $completed = true;
             }
         );
@@ -67,14 +70,14 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
     /**
      * @expectedException Exception
      */
-    public function testUnwrapObservableFromPromiseDoesNotSwallowException()
+    public function testUnwrapObservableFromPromiseDoesNotSwallowException(): void
     {
         unwrapObservableFromPromise(
             resolve(
                 Observable::just(1)
             )
         )->subscribe(
-            function () {
+            function (): void {
                 throw new Exception('boom');
             }
         );
