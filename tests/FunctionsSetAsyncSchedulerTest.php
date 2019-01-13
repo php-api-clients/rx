@@ -2,10 +2,10 @@
 
 namespace ApiClients\Tests\Tools\Rx;
 
+use function ApiClients\Tools\Rx\setAsyncScheduler;
 use ApiClients\Tools\TestUtilities\TestCase;
 use React\EventLoop\Factory;
 use Rx\Scheduler;
-use function ApiClients\Tools\Rx\setAsyncScheduler;
 
 /**
  * @internal

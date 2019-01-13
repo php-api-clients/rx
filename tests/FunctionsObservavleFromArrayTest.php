@@ -2,8 +2,8 @@
 
 namespace ApiClients\Tests\Tools\Rx;
 
-use ApiClients\Tools\TestUtilities\TestCase;
 use function ApiClients\Tools\Rx\observableFromArray;
+use ApiClients\Tools\TestUtilities\TestCase;
 
 /**
  * @internal

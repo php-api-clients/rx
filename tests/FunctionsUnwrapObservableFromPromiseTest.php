@@ -2,13 +2,13 @@
 
 namespace ApiClients\Tests\Tools\Rx;
 
+use function ApiClients\Tools\Rx\unwrapObservableFromPromise;
 use ApiClients\Tools\TestUtilities\TestCase;
 use Exception;
-use Rx\Observable;
-use Rx\React\Promise;
-use function ApiClients\Tools\Rx\unwrapObservableFromPromise;
 use function React\Promise\reject;
 use function React\Promise\resolve;
+use Rx\Observable;
+use Rx\React\Promise;
 
 /**
  * @internal
