@@ -1,11 +1,14 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ApiClients\Tests\Tools\Rx;
 
-use function ApiClients\Tools\Rx\setAsyncScheduler;
 use ApiClients\Tools\TestUtilities\TestCase;
-use React\EventLoop\Factory;
+use React\EventLoop\Loop;
 use Rx\Scheduler;
+
+use function ApiClients\Tools\Rx\setAsyncScheduler;
 
 /**
  * @internal
@@ -17,10 +20,9 @@ final class FunctionsSetAsyncSchedulerTest extends TestCase
      */
     public function testSetAsyncScheduler(): void
     {
-        $loop = Factory::create();
-        setAsyncScheduler($loop);
+        setAsyncScheduler(Loop::get());
         $scheduler = Scheduler::getAsync();
-        setAsyncScheduler($loop);
+        setAsyncScheduler(Loop::get());
         self::assertSame($scheduler, Scheduler::getAsync());
     }
 }
