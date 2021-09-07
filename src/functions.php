@@ -1,19 +1,18 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ApiClients\Tools\Rx;
 
-use Exception;
 use React\EventLoop\LoopInterface;
 use React\Promise\PromiseInterface;
 use Rx\Observable;
 use Rx\Scheduler;
+use Rx\SchedulerInterface;
 use Throwable;
 
 /**
  * Take an observable from a promise and return an new observable piping through the stream.
- *
- * @param  PromiseInterface $promise
- * @return Observable
  */
 function unwrapObservableFromPromise(PromiseInterface $promise): Observable
 {
@@ -23,8 +22,7 @@ function unwrapObservableFromPromise(PromiseInterface $promise): Observable
 /**
  * Take an array and return an observable from it with an immediate scheduler for scheduling.
  *
- * @param  array      $array
- * @return Observable
+ * @param  array<mixed> $array
  */
 function observableFromArray(array $array): Observable
 {
@@ -32,16 +30,13 @@ function observableFromArray(array $array): Observable
 }
 
 /**
- * @param  LoopInterface $loop
  * @throws Throwable
  */
 function setAsyncScheduler(LoopInterface $loop): void
 {
     try {
-        Scheduler::setAsyncFactory(function () use ($loop) {
-            return new Scheduler\EventLoopScheduler($loop);
-        });
-    } catch (Exception $e) {
+        Scheduler::setAsyncFactory(static fn (): SchedulerInterface => new Scheduler\EventLoopScheduler($loop));
+    } catch (Throwable $e) {
         if ($e->getMessage() === 'The async factory can not be set after the scheduler has been created') {
             return;
         }

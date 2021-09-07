@@ -1,14 +1,19 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ApiClients\Tests\Tools\Rx;
 
-use function ApiClients\Tools\Rx\unwrapObservableFromPromise;
 use ApiClients\Tools\TestUtilities\TestCase;
 use Exception;
-use function React\Promise\reject;
-use function React\Promise\resolve;
 use Rx\Observable;
 use Rx\React\Promise;
+use Throwable;
+
+use function ApiClients\Tools\Rx\unwrapObservableFromPromise;
+use function range;
+use function React\Promise\reject;
+use function React\Promise\resolve;
 
 /**
  * @internal
@@ -18,18 +23,18 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
     public function testUnwrapObservableFromPromise(): void
     {
         $completed = false;
-        $currentI = null;
+        $currentI  = null;
 
         unwrapObservableFromPromise(
             resolve(
-                Observable::fromArray(\range(0, 1337))
+                Observable::fromArray(range(0, 1337))
             )
         )->subscribe(
-            function ($i) use (&$currentI): void {
+            static function ($i) use (&$currentI): void {
                 $currentI = $i;
             },
             null,
-            function () use (&$completed): void {
+            static function () use (&$completed): void {
                 $completed = true;
             }
         );
@@ -40,7 +45,7 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
 
     public function testUnwrapObservableFromPromiseOnError(): void
     {
-        $completed = false;
+        $completed        = false;
         $currentException = null;
 
         $exception = new Exception('boom');
@@ -55,10 +60,10 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
             )
         )->subscribe(
             null,
-            function ($exception) use (&$currentException): void {
+            static function ($exception) use (&$currentException): void {
                 $currentException = $exception;
             },
-            function () use (&$completed): void {
+            static function () use (&$completed): void {
                 $completed = true;
             }
         );
@@ -67,17 +72,18 @@ final class FunctionsUnwrapObservableFromPromiseTest extends TestCase
         self::assertSame($exception, $currentException);
     }
 
-    /**
-     * @expectedException Exception
-     */
     public function testUnwrapObservableFromPromiseDoesNotSwallowException(): void
     {
+        self::expectException(Throwable::class);
+        self::expectExceptionMessage('boom');
+
         unwrapObservableFromPromise(
             resolve(
-                Observable::just(1)
+                Observable::of(1)
             )
         )->subscribe(
-            function (): void {
+            static function (): void {
+                /** @phpstan-ignore-next-line */
                 throw new Exception('boom');
             }
         );

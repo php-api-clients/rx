@@ -1,0 +1,2 @@
+includes:
+	- ../../vendor/api-clients/test-utilities/rules.neon

@@ -1,28 +1,32 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ApiClients\Tests\Tools\Rx;
 
-use function ApiClients\Tools\Rx\observableFromArray;
 use ApiClients\Tools\TestUtilities\TestCase;
+
+use function ApiClients\Tools\Rx\observableFromArray;
+use function range;
 
 /**
  * @internal
  */
-final class FunctionsObservavleFromArrayTest extends TestCase
+final class FunctionsObservableFromArrayTest extends TestCase
 {
     public function testObservableFromArray(): void
     {
-        $range = \range(0, 1337);
+        $range = range(0, 1337);
 
         $completed = false;
-        $currentI = null;
+        $currentI  = null;
 
         observableFromArray($range)->subscribe(
-            function ($i) use (&$currentI): void {
+            static function ($i) use (&$currentI): void {
                 $currentI = $i;
             },
             null,
-            function () use (&$completed): void {
+            static function () use (&$completed): void {
                 $completed = true;
             }
         );

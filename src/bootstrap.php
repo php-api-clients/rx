@@ -1,7 +1,8 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 use Rx\Scheduler;
+use Rx\SchedulerInterface;
 
-Scheduler::setDefaultFactory(function () {
-    return new Scheduler\ImmediateScheduler();
-});
+Scheduler::setDefaultFactory(static fn (): SchedulerInterface => new Scheduler\ImmediateScheduler());
